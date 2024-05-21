@@ -1,0 +1,45 @@
+@startuml
+start
+:Main;
+:Memanggil Fungsi tambah();
+->tambah;
+:tambah() {
+  :Masukkan angka pertama;
+  :Masukkan angka kedua;
+  :Hitung Penjumlahan: a + b;
+  :Tampilkan Hasil Penjumlahan;
+}
+<-;
+:Memanggil Fungsi kurang();
+->kurang;
+:kurang() {
+  :Masukkan angka pertama;
+  :Masukkan angka kedua;
+  :Hitung Pengurangan: a - b;
+  :Tampilkan Hasil Pengurangan;
+}
+<-;
+:Memanggil Fungsi kali();
+->kali;
+:kali() {
+  :Masukkan angka pertama;
+  :Masukkan angka kedua;
+  :Hitung Perkalian: a * b;
+  :Tampilkan Hasil Perkalian;
+}
+<-;
+:Memanggil Fungsi bagi();
+->bagi;
+:bagi() {
+  :Masukkan angka pertama;
+  :Masukkan angka kedua;
+  if (Apakah b != 0?) then (ya)
+    :Hitung Pembagian: a / b;
+    :Tampilkan Hasil Pembagian;
+  else (tidak)
+    :Tampilkan Pesan "Pembagian: tidak dapat dibagi dengan nol";
+  endif
+}
+<-;
+stop
+@enduml
