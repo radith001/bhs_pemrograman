@@ -1,3 +1,7 @@
+Nama : Radith Yafi Valerian
+
+NIM : 20230801001
+
 # Rangkuman Pertemuan 9
 
 Berikut adalah rangkuman dalam bahasa Indonesia tentang definisi array, set, dan dictionary:
