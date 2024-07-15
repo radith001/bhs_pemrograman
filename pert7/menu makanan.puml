@@ -1,0 +1,63 @@
+@startuml menu_makan
+
+left to right direction
+
+actor user
+
+rectangle menuMakan {
+    user -- (menu)
+
+    (menu) --> (choice 1) : pilih
+    (menu) --> (choice 2) : pilih
+    (menu) --> (exit)
+    
+    (choice 1) --> (Menu Makanan) : include
+    (choice 2) --> (Menu Minuman) : include
+    
+    (Menu Makanan) --> (Pecel Lele) : pilih
+    (Menu Makanan) --> (Nasi Goreng) : pilih
+    (Menu Makanan) --> (Kembali) : pilih
+    (Kembali) --> (menu) : return
+    
+    (Menu Minuman) --> (Es Teh) : pilih
+    (Menu Minuman) --> (Air Putih) : pilih@startuml Pert5
+start
+:Initialize Variables;
+while (pilih !='5') is (control statement iteration)
+        :Display Menu;
+        :Get User Input(pilih);
+        if (pilih =='1') then (case 1)
+                  :Get Input (a,b);
+                  :Call tambah(a,b);
+        else if (pilih =='2') then (case 2)
+                 :Get input (a,b);
+                 :Call kurang(a,b);
+        else if (pilih =='3') then (case 3)
+                 :Get input (a,b);
+                 :Call kali(a,b);
+        else if (pilih =='4') then (case 4)
+                 :Get input (a,b);
+                 :Call bagi(a,b);
+        else 
+                 :Display "Pilihan Salah"
+        endif
+endwhile (control statement)
+:Display "EXIT";
+stop
+
+@enduml
+    (Menu Minuman) --> (Kopi) : pilih
+    (Menu Minuman) --> (Kembali) : pilih
+    (Kembali) --> (menu) : return
+    
+    (Pecel Lele) --> (qty) : input
+    (Nasi Goreng) --> (qty) : input
+    (Es Teh) --> (qty) : input
+    (Air Putih) --> (qty) : input
+    (Kopi) --> (qty) : input
+    
+    (qty) --> (total) : total
+    (total) --> (menu) : return
+}
+
+@enduml

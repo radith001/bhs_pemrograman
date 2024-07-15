@@ -1,0 +1,74 @@
+@startuml
+start
+
+:Initialize variables (Iguana, VaranusSalvator, ReticulatusPython, BallPython, BeardedDragon, total, total_order_reptil, order, uang_pelanggan)
+
+repeat
+  :Clear screen;
+  :Display store name;
+  :Display available reptile options;
+  :Ask user to choose reptile;
+  switch (menu)
+    case (1)
+      :Display Iguana price;
+      :Ask user for quantity;
+      :Update total;
+      :Update order and total_order_reptil;
+    case (2)
+      :Display Varanus Salvator price;
+      :Ask user for quantity;
+      :Update total;
+      :Update order and total_order_reptil;
+    case (3)
+      :Display Reticulatus Python price;
+      :Ask user for quantity;
+      :Update total;
+      :Update order and total_order_reptil;
+    case (4)
+      :Display Ball Python price;
+      :Ask user for quantity;
+      :Update total;
+      :Update order and total_order_reptil;
+    case (5)
+      :Display Bearded Dragon price;
+      :Ask user for quantity;
+      :Update total;
+      :Update order and total_order_reptil;
+    else
+      stop
+  endswitch
+
+  :Ask user if they want to order more (y/n);
+  choice (pesan_lagi) is 'y' or 'Y'
+  then goto repeat
+  else
+    stop
+end
+
+:Clear screen;
+:Display total order and ask for payment;
+:Receive payment amount;
+:Calculate change;
+
+while (uang_pelanggan < total)
+  :Clear screen;
+  :Display insufficient funds message;
+  :Display total, paid amount, and shortfall;
+  choice (pilihan) is '1' or '2'
+  then
+    if (pilihan == 1) then
+      :Ask user for additional amount;
+      :Update uang_pelanggan and calculate change;
+    else
+      stop
+  else
+    stop
+endwhile
+
+:Clear screen;
+:Display order summary;
+:Display total, paid amount, and change;
+:Display thank you message;
+
+stop
+@enduml
