@@ -25,3 +25,5 @@ class CustomerSeeder extends Seeder
         ]);
     }
 }
+
+// This seeder creates two customers with names 'John Doe' and 'Jane Smith'.{tes tes yahaha hayyuuoo}

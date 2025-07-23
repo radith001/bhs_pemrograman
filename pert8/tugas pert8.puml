@@ -1,74 +1,40 @@
 @startuml
-start
 
-:Initialize variables (Iguana, VaranusSalvator, ReticulatusPython, BallPython, BeardedDragon, total, total_order_reptil, order, uang_pelanggan)
+actor User
+participant "Program" as p
+participant "Game Selection" as gs
+participant "Price Display" as pd
+participant "Payment Method" as pm
+participant "Confirmation" as conf
+participant "Exit" as X
 
-repeat
-  :Clear screen;
-  :Display store name;
-  :Display available reptile options;
-  :Ask user to choose reptile;
-  switch (menu)
-    case (1)
-      :Display Iguana price;
-      :Ask user for quantity;
-      :Update total;
-      :Update order and total_order_reptil;
-    case (2)
-      :Display Varanus Salvator price;
-      :Ask user for quantity;
-      :Update total;
-      :Update order and total_order_reptil;
-    case (3)
-      :Display Reticulatus Python price;
-      :Ask user for quantity;
-      :Update total;
-      :Update order and total_order_reptil;
-    case (4)
-      :Display Ball Python price;
-      :Ask user for quantity;
-      :Update total;
-      :Update order and total_order_reptil;
-    case (5)
-      :Display Bearded Dragon price;
-      :Ask user for quantity;
-      :Update total;
-      :Update order and total_order_reptil;
-    else
-      stop
-  endswitch
+User -> p : Mulai program
+p -> gs : Tampilkan daftar game
+gs -> User : Masukkan pilihan game (1-4)
+User -> gs : Pilih game
+gs -> p : Pilihan game diterima
 
-  :Ask user if they want to order more (y/n);
-  choice (pesan_lagi) is 'y' or 'Y'
-  then goto repeat
-  else
-    stop
+p -> User : Masukkan ID game Anda
+User -> p : Input ID game
+
+p -> pd : Tampilkan harga saldo
+pd -> User : Masukkan jumlah saldo yang ingin dibeli
+User -> pd : Pilih jumlah saldo
+pd -> p : Pilihan saldo diterima
+
+p -> pm : Tampilkan metode pembayaran
+pm -> User : Masukkan pilihan metode pembayaran (1-3)
+User -> pm : Pilih metode pembayaran
+pm -> p : Pilihan metode pembayaran diterima
+
+p -> conf : Tampilkan konfirmasi pembelian
+conf -> User : Konfirmasi pembelian (y/n)
+User -> conf : Pilih konfirmasi
+
+alt Pembelian berhasil
+  conf -> X : Pembelian berhasil. Terima kasih!
+else Pembelian dibatalkan
+  conf -> X : Pembelian dibatalkan.
 end
 
-:Clear screen;
-:Display total order and ask for payment;
-:Receive payment amount;
-:Calculate change;
-
-while (uang_pelanggan < total)
-  :Clear screen;
-  :Display insufficient funds message;
-  :Display total, paid amount, and shortfall;
-  choice (pilihan) is '1' or '2'
-  then
-    if (pilihan == 1) then
-      :Ask user for additional amount;
-      :Update uang_pelanggan and calculate change;
-    else
-      stop
-  else
-    stop
-endwhile
-
-:Clear screen;
-:Display order summary;
-:Display total, paid amount, and change;
-:Display thank you message;
-
-stop
 @enduml

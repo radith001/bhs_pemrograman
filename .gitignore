@@ -2,3 +2,6 @@
 /pert9/db/mongo/*
 /pert9/db/postgres/*
 /pert9/db/redis/*
+db/*
+nginx/*
+php/*
